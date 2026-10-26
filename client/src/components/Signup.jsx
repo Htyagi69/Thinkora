@@ -99,7 +99,6 @@ const SignupPage = ({ onSwitch, navigate, from }) => {
                         : 'bg-white border-stone-200 text-gray-900 shadow-stone-200/50'
                 }`}
             >
-                {/* Theme toggle */}
                 <button
                     type="button"
                     onClick={toggleTheme}
@@ -141,17 +140,19 @@ const SignupPage = ({ onSwitch, navigate, from }) => {
                     )}
                 </button>
 
+                <div className='flex gap-4'>
                 <img
                     src="/brush.png"
                     alt="BrushSync logo"
-                    className="w-12 h-auto mb-5"
+                    className="w-12 h-12 mb-5"
                 />
 
+                <div className='flex flex-col items-center'>
                 <h1
                     className={`text-2xl font-semibold tracking-tight mb-1 ${
                         dark ? 'text-white' : 'text-gray-900'
                     }`}
-                >
+                    >
                     Create your account
                 </h1>
 
@@ -159,10 +160,12 @@ const SignupPage = ({ onSwitch, navigate, from }) => {
                     className={`text-sm mb-7 ${
                         dark ? 'text-zinc-400' : 'text-gray-400'
                     }`}
-                >
+                    >
                     Get started — it's completely free.
                 </p>
 
+                    </div>
+                    </div>
                 <button
                     type="button"
                     onClick={handleGoogleAuth}

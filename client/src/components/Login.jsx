@@ -87,12 +87,14 @@ const LoginPage = ({ onSwitch, from, navigate }) => {
                         </svg>
                     )}
                 </button>
+             <div className='flex gap-2'>
 
                 <img
                     src="/brush.png"
                     alt="BrushSync logo"
-                    className="w-12 h-auto mb-5"
-                />
+                    className="w-12 h-12 mb-5"
+                    />
+              <div className='flex flex-col justify-center items-center'>
 
                 <h1 className={`text-2xl font-semibold tracking-tight mb-1 ${
                     dark ? "text-white" : "text-gray-900"
@@ -105,7 +107,9 @@ const LoginPage = ({ onSwitch, from, navigate }) => {
                 }`}>
                     Sign in to continue to your account.
                 </p>
+                    </div>
 
+                    </div>
                 <button
                     type="button"
                     className={`w-full flex items-center justify-center gap-2.5 py-2.5 px-4 border rounded-xl text-sm font-medium transition-all mb-6 ${
