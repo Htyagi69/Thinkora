@@ -22,7 +22,7 @@ export const auth = betterAuth({
   trustedOrigins:[process.env.CLIENT_URL],
      advanced: {
     defaultCookieAttributes: {
-      sameSite: "lax",
+      sameSite: "none",
       secure: true,
     },
     crossSubdomainCookies: {
