@@ -6,6 +6,7 @@ import cors from'cors'
 import {ExpressPeerServer} from 'peer'
 import { toNodeHandler } from "better-auth/node";
 import { auth } from "./lib/auth.js";
+import { socketAdapter } from "./connection.js"; 
 
 const app=express();
 const httpserver=createServer(app)
@@ -44,6 +45,8 @@ const io = new Server(httpserver, {
     },
     transports: ['polling', 'websocket']
 });
+
+io.adapter(socketAdapter)
 
 app.get('/',(req,res)=>{
     return res.json({message:"Hello from Server"})
