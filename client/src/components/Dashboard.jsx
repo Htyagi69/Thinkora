@@ -16,8 +16,9 @@ function Dashboard(){
     const {data:session}=authClient.useSession();
     const user=session?.user;
     const {roomid}=useParams()
-    const params=new URLSearchParams(window.location.search)
-    const SERVER_URL=params.get("server") || import.meta.env.VITE_SERVER_URL
+    // const params=new URLSearchParams(window.location.search)
+    // const SERVER_URL=params.get("server") || import.meta.env.VITE_SERVER_URL
+    const SERVER_URL=import.meta.env.VITE_SERVER_URL
     const [cursors, setCursors] = useState({}); // { userId: {x, y} }
 
     const socket = useMemo(() => io(SERVER_URL, {
