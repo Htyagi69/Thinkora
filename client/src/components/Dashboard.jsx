@@ -16,13 +16,16 @@ function Dashboard(){
     const {data:session}=authClient.useSession();
     const user=session?.user;
     const {roomid}=useParams()
+    const params=new URLSearchParams(window.location.search)
+    const SERVER_URL=params.get("server") || import.meta.env.VITE_SERVER_URL
     const [cursors, setCursors] = useState({}); // { userId: {x, y} }
-    const socket = useMemo(() => io(import.meta.env.VITE_SERVER_URL, {
-    transports: ['polling', 'websocket'], // Start with polling, then upgrade
-    withCredentials: true,
-    reconnection: true,
-    reconnectionAttempts: 5,
-}), []);
+
+    const socket = useMemo(() => io(SERVER_URL, {
+                                    transports: ['polling', 'websocket'], // Start with polling, then upgrade
+                                    withCredentials: true,
+                                    reconnection: true,
+                                    reconnectionAttempts: 5,
+                                }), []);
 
 
 const [pos, setPos] = useState({ x: 78, y: 67 }); // top-left corner, in pixels
@@ -39,6 +42,7 @@ useEffect(() => {
     media.addEventListener('change', update);
     return () => media.removeEventListener('change', update);
 }, []);
+
 
 useEffect(() => {
     if (!dragging) return;

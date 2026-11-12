@@ -29,7 +29,7 @@ function App() {
                 </div>
 
                 <h1 className="text-xl font-semibold text-white">
-                    MultiplayerBrushSync 
+                    Thinkora 
                 </h1>
 
                 <div className="flex items-center gap-2 mt-3">
